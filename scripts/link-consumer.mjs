@@ -32,7 +32,7 @@ const [{ filename }] = JSON.parse(
   run("npm", ["pack", "--ignore-scripts", "--json"]),
 );
 const artifact = `vexxhost-ui-${packageJson.version}-${revision.slice(0, 12)}.tgz`;
-const vendor = path.join(target, "vendor");
+const vendor = path.join(path.dirname(manifestPath), "vendor");
 mkdirSync(vendor, { recursive: true });
 const previous = manifest.dependencies?.["@vexxhost/ui"];
 copyFileSync(path.join(source, filename), path.join(vendor, artifact));

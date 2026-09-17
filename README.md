@@ -35,7 +35,7 @@ The browser suite verifies passthrough identity, refs, keyboard activation, disa
 
 Canonical source: **https://github.com/vexxhost/ui** (private).
 
-The four initial consumers use a vendored package built from an exact commit in this repository. Each consumer records the source repository, full commit, version, artifact name, and SHA-512 integrity in `vendor/ui-source.json`. The commit appears in the artifact filename, so package managers cannot silently reuse a previous build of the same version. Their CI and deployment installs do not require access to this private repository.
+The four initial consumers use a vendored package built from an exact commit in this repository. Each consumer records the source repository, full commit, version, artifact name, and SHA-512 integrity in `vendor/ui-source.json` beside the consuming package.json (for Atlas, `services/web/vendor/ui-source.json`). The commit appears in the artifact filename, so package managers cannot silently reuse a previous build of the same version. Their CI and deployment installs do not require access to this private repository.
 
 To update a consumer, check out the desired UI commit, install dependencies, and run:
 
