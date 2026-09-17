@@ -1,0 +1,25 @@
+@import "@cloudflare/kumo/styles/tailwind";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "../node_modules/@cloudflare/kumo/dist/chunks/button-*.js";
+@source "../node_modules/@cloudflare/kumo/dist/chunks/loader-*.js";
+@source "../node_modules/@cloudflare/kumo/dist/chunks/tooltip-*.js";
+@source "./compat.tsx";
+/* No Tailwind preflight: host applications retain their existing reset. */
+:root {
+  --color-kumo-brand: #6d28d9;
+  --color-kumo-brand-hover: #5b21b6;
+  --text-color-kumo-brand: #6d28d9;
+}
+:root.dark,
+:root[data-theme="dark"],
+:root[data-mode="dark"] {
+  color-scheme: dark;
+  --color-kumo-brand: #7c3aed;
+  --color-kumo-brand-hover: #6d28d9;
+  --text-color-kumo-brand: #c4b5fd;
+}
+:root[data-theme="light"],
+:root[data-mode="light"] {
+  color-scheme: light;
+}

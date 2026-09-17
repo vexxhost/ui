@@ -1,0 +1,59 @@
+{
+  "name": "@vexxhost/ui",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./compat": {
+      "types": "./dist/compat.d.ts",
+      "import": "./dist/compat.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "scripts": {
+    "build": "tsc && tailwindcss -i src/styles.css -o dist/styles.css --minify",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node tests/browser.mjs",
+    "screenshots": "npm run build && node scripts/screenshots.mjs",
+    "link:consumer": "node scripts/link-consumer.mjs"
+  },
+  "dependencies": {
+    "@cloudflare/kumo": "2.13.2",
+    "@phosphor-icons/react": "^2.1.10",
+    "@radix-ui/react-slot": "^1.2.4",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.4.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "playwright": "^1.63.0",
+    "vite": "^8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vexxhost/ui.git"
+  },
+  "homepage": "https://github.com/vexxhost/ui",
+  "license": "UNLICENSED",
+  "private": true
+}
