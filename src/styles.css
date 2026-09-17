@@ -4,7 +4,6 @@
 @source "../node_modules/@cloudflare/kumo/dist/chunks/button-*.js";
 @source "../node_modules/@cloudflare/kumo/dist/chunks/loader-*.js";
 @source "../node_modules/@cloudflare/kumo/dist/chunks/tooltip-*.js";
-@source "./compat.tsx";
 /* No Tailwind preflight: host applications retain their existing reset. */
 :root {
   --color-kumo-brand: #6d28d9;

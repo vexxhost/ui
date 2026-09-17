@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
 import { createRoot } from "react-dom/client";
-import { Button, LinkButton } from "../dist/index.js";
+import { Button, LinkButton, LinkProvider } from "../dist/index.js";
 import { Button as KumoButton } from "@cloudflare/kumo/components/button";
-import { Button as LegacyButton, NativeButton } from "../dist/compat.js";
 import { Slot } from "@radix-ui/react-slot";
 import "../dist/styles.css";
 if (Button !== KumoButton)
@@ -48,21 +47,36 @@ function App() {
           setValue(e.nativeEvent.submitter.value);
         }}
       >
-        <NativeButton name="decision" value="approve">
+        <Button type="submit" name="decision" value="approve">
           Approve
-        </NativeButton>
-        <LegacyButton name="decision" value="retry">
+        </Button>
+        <Button type="submit" name="decision" value="retry">
           Retry
-        </LegacyButton>
+        </Button>
         <Button onClick={() => setValue("no-submit")}>No submit</Button>
       </form>
-      <LegacyButton asChild variant="primary">
-        <a href="#destination" onClick={() => setValue("link-click")}>
+      <LinkProvider
+        component={React.forwardRef(function RouterLink(props, ref) {
+          return <a {...props} ref={ref} data-router-link="true" />;
+        })}
+      >
+        <LinkButton
+          variant="primary"
+          href="#destination"
+          onClick={() => setValue("link-click")}
+        >
           Destination
-        </a>
-      </LegacyButton>
+        </LinkButton>
+      </LinkProvider>
+      <Button
+        shape="square"
+        aria-label="Add item"
+        icon={<span aria-hidden="true">+</span>}
+      />
       <Slot data-probe="slot">
-        <LegacyButton onClick={() => setValue("slotted")}>Slotted</LegacyButton>
+        <Button title="Composed action" onClick={() => setValue("slotted")}>
+          Slotted
+        </Button>
       </Slot>
       <LinkButton href="#other">Other link</LinkButton>
       <output>{value}</output>

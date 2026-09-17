@@ -14,25 +14,19 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./compat": {
-      "types": "./dist/compat.d.ts",
-      "import": "./dist/compat.js"
-    },
     "./styles.css": "./dist/styles.css"
   },
   "scripts": {
-    "build": "tsc && tailwindcss -i src/styles.css -o dist/styles.css --minify",
+    "build": "npm run clean && tsc && tailwindcss -i src/styles.css -o dist/styles.css --minify",
     "typecheck": "tsc --noEmit",
     "test": "npm run build && node tests/browser.mjs",
     "screenshots": "npm run build && node scripts/screenshots.mjs",
-    "link:consumer": "node scripts/link-consumer.mjs"
+    "link:consumer": "node scripts/link-consumer.mjs",
+    "clean": "node -e \"require('node:fs').rmSync('dist', {recursive: true, force: true})\""
   },
   "dependencies": {
     "@cloudflare/kumo": "2.13.2",
-    "@phosphor-icons/react": "^2.1.10",
-    "@radix-ui/react-slot": "^1.2.4",
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^3.4.0"
+    "@phosphor-icons/react": "^2.1.10"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -47,7 +41,8 @@
     "@tailwindcss/cli": "^4.0.0",
     "tailwindcss": "^4.0.0",
     "playwright": "^1.63.0",
-    "vite": "^8.0.0"
+    "vite": "^8.0.0",
+    "@radix-ui/react-slot": "^1.2.4"
   },
   "repository": {
     "type": "git",

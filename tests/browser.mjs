@@ -41,6 +41,8 @@ try {
   await page.getByText("no-submit", { exact: true }).waitFor();
   const link = page.getByRole("link", { name: "Destination" });
   assert.equal(await link.locator("button,a").count(), 0);
+  assert.equal(await link.getAttribute("data-router-link"), "true");
+  assert.equal(await page.getByRole("button", { name: "Add item" }).count(), 1);
   await link.click();
   await page.getByText("link-click", { exact: true }).waitFor();
   assert(page.url().endsWith("#destination"));
@@ -69,7 +71,7 @@ try {
   );
   assert.deepEqual(errors, []);
   console.log(
-    "PASS: passthrough identity, refs, mouse/keyboard, loading/disabled, form submitters, default type, slotted links/events, and compiled purple light/dark styles.",
+    "PASS: passthrough identity, refs, mouse/keyboard, loading/disabled, form submitters, default type, router links/events, icon accessibility, and compiled purple light/dark styles.",
   );
 } finally {
   await browser.close();

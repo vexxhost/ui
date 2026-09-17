@@ -1,7 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Button, LinkButton } from "../dist/index.js";
-import { Button as CompatButton, NativeButton } from "../dist/compat.js";
 import "../dist/styles.css";
 
 const params = new URLSearchParams(location.search);
@@ -61,31 +60,33 @@ function Examples() {
     return (
       <>
         <Row title="Calls to action">
-          <CompatButton variant="headerCta">
+          <Button variant="primary">
             Talk to an expert <Arrow />
-          </CompatButton>
-          <CompatButton variant="outline">Explore our products</CompatButton>
-          <CompatButton variant="ghost">
+          </Button>
+          <Button variant="outline">Explore our products</Button>
+          <Button variant="ghost">
             Learn more <Arrow />
-          </CompatButton>
+          </Button>
         </Row>
         <Row title="Links and pagination">
-          <CompatButton asChild>
-            <a href="#contact">Contact us</a>
-          </CompatButton>
-          <CompatButton asChild variant="outline" size="icon">
-            <a href="#page-1" aria-current="page">
-              1
-            </a>
-          </CompatButton>
-          <CompatButton asChild variant="ghost" size="icon">
-            <a href="#page-2">2</a>
-          </CompatButton>
-          <CompatButton asChild variant="ghost">
-            <a href="#next">
-              Next <Arrow />
-            </a>
-          </CompatButton>
+          <LinkButton variant="primary" href="#contact">
+            Contact us
+          </LinkButton>
+          <LinkButton
+            variant="outline"
+            shape="square"
+            size="base"
+            href="#page-1"
+            aria-current="page"
+          >
+            1
+          </LinkButton>
+          <LinkButton variant="ghost" shape="square" size="base" href="#page-2">
+            2
+          </LinkButton>
+          <LinkButton variant="ghost" href="#next">
+            Next <Arrow />
+          </LinkButton>
         </Row>
       </>
     );
@@ -93,41 +94,37 @@ function Examples() {
     return (
       <>
         <Row title="Capture actions">
-          <CompatButton>Save contact</CompatButton>
-          <CompatButton variant="outline">Scan another badge</CompatButton>
-          <CompatButton variant="ghost">Cancel</CompatButton>
+          <Button variant="primary">Save contact</Button>
+          <Button variant="outline">Scan another badge</Button>
+          <Button variant="ghost">Cancel</Button>
         </Row>
         <Row title="Administration">
           <Button icon={<Arrow />}>Export filtered</Button>
           <LinkButton href="#capture">Capture</LinkButton>
           <LinkButton href="#giveaway">Launch giveaway</LinkButton>
-          <CompatButton variant="destructive">Delete contact</CompatButton>
+          <Button variant="destructive">Delete contact</Button>
         </Row>
       </>
     );
   if (app === "onboarding")
     return (
       <>
-        <Row title="Customer actions · existing application classes">
-          <Button variant="primary" className="primary-button">
+        <Row title="Customer actions">
+          <Button variant="primary">
             Continue <Arrow />
           </Button>
-          <Button variant="ghost" className="text-button">
-            Sign in
-          </Button>
-          <Button variant="primary" className="primary-button" disabled>
+          <Button variant="ghost">Sign in</Button>
+          <Button variant="primary" disabled>
             Save payment method
           </Button>
         </Row>
-        <Row title="Staff controls · existing semantic colors">
-          <NativeButton className="primary-button">
+        <Row title="Staff controls">
+          <Button variant="primary" size="lg">
             Retry activation
-          </NativeButton>
-          <NativeButton className="success-button">Approve</NativeButton>
-          <NativeButton className="danger-button">Reject</NativeButton>
-          <NativeButton className="secondary-button">
-            Back to reviews
-          </NativeButton>
+          </Button>
+          <Button variant="primary">Approve</Button>
+          <Button variant="destructive">Reject</Button>
+          <Button variant="secondary">Back to reviews</Button>
         </Row>
       </>
     );
@@ -135,23 +132,28 @@ function Examples() {
     return (
       <>
         <Row title="Conversation actions">
-          <CompatButton>
+          <Button variant="primary">
             <Plus /> New conversation
-          </CompatButton>
-          <CompatButton variant="outline">Retry</CompatButton>
-          <CompatButton variant="ghost">Copy response</CompatButton>
+          </Button>
+          <Button variant="outline">Retry</Button>
+          <Button variant="ghost">Copy response</Button>
         </Row>
         <Row title="Compact controls and links">
-          <CompatButton size="icon" aria-label="Send message">
+          <Button shape="square" size="base" aria-label="Send message">
             <Arrow />
-          </CompatButton>
-          <CompatButton variant="ghost" size="icon" aria-label="New thread">
+          </Button>
+          <Button
+            variant="ghost"
+            shape="square"
+            size="base"
+            aria-label="New thread"
+          >
             <Plus />
-          </CompatButton>
-          <CompatButton asChild variant="outline">
-            <a href="#settings">Settings</a>
-          </CompatButton>
-          <CompatButton variant="destructive">Delete conversation</CompatButton>
+          </Button>
+          <LinkButton variant="outline" href="#settings">
+            Settings
+          </LinkButton>
+          <Button variant="destructive">Delete conversation</Button>
         </Row>
       </>
     );
@@ -161,7 +163,7 @@ function Examples() {
         <Button variant="primary">
           Primary <Arrow />
         </Button>
-        <Button>Secondary</Button>
+        <Button variant="secondary">Secondary</Button>
         <Button variant="outline">Outline</Button>
         <Button variant="ghost">Ghost</Button>
         <Button variant="destructive">Destructive</Button>

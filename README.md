@@ -14,16 +14,11 @@ import "@vexxhost/ui/styles.css";
 
 Primary actions use VEXXHOST purple (#6d28d9, #7c3aed in dark mode). Kumo's default variant remains secondary; request `variant="primary"` explicitly. Theme overrides and compiled button utilities live in this package. Consumers do not need to scan its node_modules or import Kumo CSS. No Tailwind preflight is included. Dark mode supports `.dark`, `data-theme="dark"`, and `data-mode="dark"` on the document root.
 
-## Existing apps
+## One component API
 
-`@vexxhost/ui/compat` contains temporary migration adapters:
+All consumers import directly from `@vexxhost/ui`. Use `variant="primary"` for primary actions, `shape="square"` with an accessible name for icon controls, and `LinkButton` for navigation. Forms specify `type="submit"` explicitly; Kumo defaults to `type="button"`.
 
-- `Button` maps existing shadcn variants and sizes, and preserves `asChild` links through Kumo's LinkProvider and Radix Slot.
-- `NativeButton` preserves application-specific classes and native submit defaults for custom controls.
-
-The root Button keeps Kumo's default `type="button"`. Compatibility components preserve the former native `type="submit"` default. Always set `type` explicitly in new forms.
-
-The compatibility adapters intentionally retain some application styling. Framework-owned controls (Payload, React-admin, Radix menus and tabs) require their own integration and are not globally replaced.
+Configure Kumo's `LinkProvider` once in a client provider to connect `LinkButton` to the application's router. The Website provider uses its localized Next.js Link; the other applications use Next.js Link. There are no legacy Button wrappers or compatibility entry points.
 
 ## Development
 
@@ -34,7 +29,7 @@ npm test
 npm pack
 ```
 
-The browser suite verifies passthrough identity, refs, keyboard activation, disabled/loading states, form submitters, Radix composition, slotted links, and purple light/dark styling.
+The browser suite verifies passthrough identity, refs, keyboard activation, disabled/loading states, form submitters, Radix composition, router links, and purple light/dark styling.
 
 ## Private upstream and consumer updates
 
