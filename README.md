@@ -31,21 +31,19 @@ npm pack
 
 The browser suite verifies passthrough identity, refs, keyboard activation, disabled/loading states, form submitters, Radix composition, router links, and purple light/dark styling.
 
-## Private upstream and consumer updates
+## Installation and releases
 
-Canonical source: **https://github.com/vexxhost/ui** (private).
+Canonical source: **https://github.com/vexxhost/ui** (private). The compiled package is distributed centrally through GitHub Packages. Consumers depend on an exact published version; no package archives are checked into application repositories.
 
-The four initial consumers use a vendored package built from an exact commit in this repository. Each consumer records the source repository, full commit, version, artifact name, and SHA-512 integrity in `vendor/ui-source.json` beside the consuming package.json (for Atlas, `services/web/vendor/ui-source.json`). The commit appears in the artifact filename, so package managers cannot silently reuse a previous build of the same version. Their CI and deployment installs do not require access to this private repository.
-
-To update a consumer, check out the desired UI commit, install dependencies, and run:
+Configure the `@vexxhost` scope to use `https://npm.pkg.github.com` in `.npmrc`, and authenticate with a token that has `read:packages` and access to this package. Never commit credentials.
 
 ```sh
-npm ci
-npm run link:consumer -- ../website
-# Other consumers: ../eventhub, ../onboarding, ../atlas
+npm install --save-exact @vexxhost/ui@0.1.0
 ```
 
-The command requires a clean committed UI checkout, builds and packs this package, copies the artifact, records its source, updates the consumer manifest and lockfile, and removes its previously referenced UI artifact. Review and commit the resulting consumer changes. No registry publication or automatic consumer deployment occurs.
+The release workflow publishes on `v*` tags after verifying that the tag matches package.json and running the browser tests. Bump the version, commit it, then tag that commit (`v0.1.0`, for example). Published versions are immutable. Update each consumer manifest and lockfile to adopt a release.
+
+The package must grant Actions read access to website, eventhub, onboarding, and atlas in its GitHub package settings. Their workflows use `GITHUB_TOKEN` with `packages: read`. External deployment systems and local developers need their own package read token through `NODE_AUTH_TOKEN`.
 
 ## Screenshots
 

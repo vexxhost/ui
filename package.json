@@ -21,7 +21,6 @@
     "typecheck": "tsc --noEmit",
     "test": "npm run build && node tests/browser.mjs",
     "screenshots": "npm run build && node scripts/screenshots.mjs",
-    "link:consumer": "node scripts/link-consumer.mjs",
     "clean": "node -e \"require('node:fs').rmSync('dist', {recursive: true, force: true})\""
   },
   "dependencies": {
@@ -50,5 +49,8 @@
   },
   "homepage": "https://github.com/vexxhost/ui",
   "license": "UNLICENSED",
-  "private": true
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  }
 }
