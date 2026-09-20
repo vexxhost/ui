@@ -4,6 +4,31 @@
 @source "../node_modules/@cloudflare/kumo/dist/chunks/button-*.js";
 @source "../node_modules/@cloudflare/kumo/dist/chunks/loader-*.js";
 @source "../node_modules/@cloudflare/kumo/dist/chunks/tooltip-*.js";
+/* Kumo ships a compact type scale (--text-xs 12px, --text-sm 13px, --text-base
+   14px) and emits those tokens unlayered at :root. Unlayered declarations outrank
+   layered ones, so they beat every consuming application's `@layer theme` scale
+   and shrink its text (text-sm 14px -> 13px, text-base 16px -> 14px sitewide).
+   Hand :root back to the host application's own scale, and keep Kumo's compact
+   scale scoped to Kumo's own components, where it is an intentional design
+   choice and matches the type sizes those components were designed with. */
+:root,
+:host {
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+}
+
+[data-kumo-component] {
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-lg: 16px;
+}
+
 /* No Tailwind preflight: host applications retain their existing reset. */
 :root {
   --color-kumo-brand: #6d28d9;
