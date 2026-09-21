@@ -41,6 +41,30 @@
   --text-lg--line-height: 1.5;
 }
 
+/* What Kumo still emits unlayered, and why it is left alone.
+ *
+ * Unlayered declarations beat layered ones, so anything theme-kumo.css or the
+ * component chunks declare outside a layer is a surface a host application
+ * cannot override with its own Tailwind utilities:
+ *
+ *   --radius-sm/md/lg, --spacing, --font-weight-medium
+ *     Same values as Tailwind's defaults, so a host is unaffected unless it
+ *     customizes them. A host that derives radii from its own token inside
+ *     `@theme inline` is immune, because the value is inlined into the utility.
+ *   .float, .skeleton, .animate-bounce-in, .animate-toast-bump,
+ *   .animate-clipboard-toast-bump, .animate-refresh, .kumo-chart-shimmer,
+ *   .no-scrollbar, .no-input-spinner, .link-current, .link-external-icon
+ *     Unprefixed global class names. None collide in the applications that
+ *     consume this package today, but one would win over a host utility of the
+ *     same name.
+ *   color-scheme: light on :root
+ *     Replaces the browser default, which is what a host with no declaration of
+ *     its own was previously getting. It improves native form controls and
+ *     scrollbars, and `data-mode="dark"` switches it.
+ *
+ * Kumo's own prefixes (`.kumo-*`, `.rdp-*`) and its `[data-kumo-component]`
+ * scope are not listed: they already namespace themselves.
+ */
 /* No Tailwind preflight: host applications retain their existing reset. */
 :root {
   --color-kumo-brand: #6d28d9;
