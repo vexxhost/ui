@@ -1,0 +1,276 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "vexxhost-ui",
+  "homepage": "https://github.com/vexxhost/ui",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "VEXXHOST theme",
+      "description": "VEXXHOST brand tokens (light and dark) and their shadcn/ui mappings. Components only reference these token names.",
+      "cssVars": {
+        "theme": {
+          "radius-sm": "calc(var(--radius) - 4px)",
+          "radius-md": "calc(var(--radius) - 2px)",
+          "radius-lg": "var(--radius)",
+          "radius-xl": "calc(var(--radius) + 4px)",
+          "color-background": "var(--background)",
+          "color-foreground": "var(--foreground)",
+          "color-card": "var(--card)",
+          "color-card-foreground": "var(--card-foreground)",
+          "color-popover": "var(--popover)",
+          "color-popover-foreground": "var(--popover-foreground)",
+          "color-primary": "var(--primary)",
+          "color-primary-foreground": "var(--primary-foreground)",
+          "color-secondary": "var(--secondary)",
+          "color-secondary-foreground": "var(--secondary-foreground)",
+          "color-muted": "var(--muted)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-accent": "var(--accent)",
+          "color-accent-foreground": "var(--accent-foreground)",
+          "color-destructive": "var(--destructive)",
+          "color-border": "var(--border)",
+          "color-border-strong": "var(--border-strong)",
+          "color-input": "var(--input)",
+          "color-ring": "var(--ring)",
+          "color-canvas": "var(--canvas)",
+          "color-surface": "var(--surface)",
+          "color-surface-raised": "var(--surface-raised)",
+          "color-surface-sunken": "var(--surface-sunken)",
+          "color-text": "var(--text)",
+          "color-text-muted": "var(--text-muted)",
+          "color-focus": "var(--focus)",
+          "color-selection": "var(--selection)",
+          "color-selection-foreground": "var(--selection-foreground)",
+          "color-status-info": "var(--status-info)",
+          "color-status-info-soft": "var(--status-info-soft)",
+          "color-status-info-border": "var(--status-info-border)",
+          "color-status-success": "var(--status-success)",
+          "color-status-success-soft": "var(--status-success-soft)",
+          "color-status-success-border": "var(--status-success-border)",
+          "color-status-warning": "var(--status-warning)",
+          "color-status-warning-soft": "var(--status-warning-soft)",
+          "color-status-warning-border": "var(--status-warning-border)",
+          "color-status-danger": "var(--status-danger)",
+          "color-status-danger-soft": "var(--status-danger-soft)",
+          "color-status-danger-border": "var(--status-danger-border)",
+          "color-chart-1": "var(--chart-1)",
+          "color-chart-2": "var(--chart-2)",
+          "color-chart-3": "var(--chart-3)",
+          "color-chart-4": "var(--chart-4)",
+          "color-chart-5": "var(--chart-5)",
+          "color-sidebar": "var(--sidebar)",
+          "color-sidebar-foreground": "var(--sidebar-foreground)",
+          "color-sidebar-primary": "var(--sidebar-primary)",
+          "color-sidebar-primary-foreground": "var(--sidebar-primary-foreground)",
+          "color-sidebar-accent": "var(--sidebar-accent)",
+          "color-sidebar-accent-foreground": "var(--sidebar-accent-foreground)",
+          "color-sidebar-border": "var(--sidebar-border)",
+          "color-sidebar-ring": "var(--sidebar-ring)"
+        },
+        "light": {
+          "canvas": "#f7f7f9",
+          "surface": "#fbfbfd",
+          "surface-raised": "#ffffff",
+          "surface-sunken": "#f0f0f3",
+          "text": "#1d1d27",
+          "text-muted": "#65656f",
+          "stroke": "#e1e1e5",
+          "stroke-strong": "#c7c6ce",
+          "interaction": "#6536ff",
+          "interaction-foreground": "#ffffff",
+          "focus": "#6536ff",
+          "selection": "#ededfd",
+          "selection-foreground": "#2a1659",
+          "status-info": "#176f99",
+          "status-info-soft": "#e3f1f7",
+          "status-info-border": "#9cc8da",
+          "status-success": "#1d7454",
+          "status-success-soft": "#e5f3ec",
+          "status-success-border": "#9bcab5",
+          "status-warning": "#8b5d17",
+          "status-warning-soft": "#f7efdd",
+          "status-warning-border": "#d9bd80",
+          "status-danger": "#b43850",
+          "status-danger-soft": "#f9e8ec",
+          "status-danger-border": "#e3a7b3",
+          "viz-1": "#6536ff",
+          "viz-2": "#2b7c5b",
+          "viz-3": "#a86b24",
+          "viz-4": "#9f425e",
+          "viz-5": "#2475a6",
+          "sidebar-surface": "#f2f2f5",
+          "sidebar-text": "#32323b",
+          "sidebar-selection": "#e6e6f9",
+          "sidebar-selection-foreground": "#2a1659",
+          "radius": "0.5rem"
+        },
+        "dark": {
+          "canvas": "#0c0c0f",
+          "surface": "#121216",
+          "surface-raised": "#19191d",
+          "surface-sunken": "#0f0f12",
+          "text": "#f0f0f3",
+          "text-muted": "#a4a3ad",
+          "stroke": "#2b2b30",
+          "stroke-strong": "#3f3f46",
+          "interaction": "#a9a0fc",
+          "interaction-foreground": "#2a1659",
+          "focus": "#998ef6",
+          "selection": "#2c274f",
+          "selection-foreground": "#ededfc",
+          "status-info": "#78c8ed",
+          "status-info-soft": "#133243",
+          "status-info-border": "#28617b",
+          "status-success": "#72d3a3",
+          "status-success-soft": "#123328",
+          "status-success-border": "#2d6851",
+          "status-warning": "#e4bb72",
+          "status-warning-soft": "#3a2c16",
+          "status-warning-border": "#73572b",
+          "status-danger": "#fa8598",
+          "status-danger-soft": "#401d27",
+          "status-danger-border": "#7d3b4a",
+          "viz-1": "#9f95f7",
+          "viz-2": "#6dcca0",
+          "viz-3": "#e1b36c",
+          "viz-4": "#ec8fa3",
+          "viz-5": "#70b7e5",
+          "sidebar-surface": "#0f0f12",
+          "sidebar-text": "#d7d7de",
+          "sidebar-selection": "#252240",
+          "sidebar-selection-foreground": "#f1f0fc"
+        }
+      },
+      "css": {
+        ":root": {
+          "color-scheme": "light",
+          "--shadow-control": "0 1px 2px rgb(42 22 89 / 6%)",
+          "--shadow-overlay": "0 16px 44px -18px rgb(42 22 89 / 22%), 0 2px 8px rgb(42 22 89 / 6%)",
+          "--background": "var(--canvas)",
+          "--foreground": "var(--text)",
+          "--card": "var(--surface)",
+          "--card-foreground": "var(--text)",
+          "--popover": "var(--surface-raised)",
+          "--popover-foreground": "var(--text)",
+          "--primary": "var(--interaction)",
+          "--primary-foreground": "var(--interaction-foreground)",
+          "--secondary": "var(--surface-sunken)",
+          "--secondary-foreground": "var(--text)",
+          "--muted": "var(--surface-sunken)",
+          "--muted-foreground": "var(--text-muted)",
+          "--accent": "var(--selection)",
+          "--accent-foreground": "var(--selection-foreground)",
+          "--destructive": "var(--status-danger)",
+          "--border": "var(--stroke)",
+          "--border-strong": "var(--stroke-strong)",
+          "--input": "var(--stroke-strong)",
+          "--ring": "var(--focus)",
+          "--chart-1": "var(--viz-1)",
+          "--chart-2": "var(--viz-2)",
+          "--chart-3": "var(--viz-3)",
+          "--chart-4": "var(--viz-4)",
+          "--chart-5": "var(--viz-5)",
+          "--sidebar": "var(--sidebar-surface)",
+          "--sidebar-foreground": "var(--sidebar-text)",
+          "--sidebar-primary": "var(--interaction)",
+          "--sidebar-primary-foreground": "var(--interaction-foreground)",
+          "--sidebar-accent": "var(--sidebar-selection)",
+          "--sidebar-accent-foreground": "var(--sidebar-selection-foreground)",
+          "--sidebar-border": "var(--stroke)",
+          "--sidebar-ring": "var(--focus)"
+        },
+        ".dark": {
+          "color-scheme": "dark",
+          "--shadow-control": "0 1px 2px rgb(0 0 0 / 28%)",
+          "--shadow-overlay": "0 18px 48px -16px rgb(0 0 0 / 62%), 0 0 0 1px rgb(255 255 255 / 3%)"
+        },
+        "@layer base": {
+          "*": {
+            "@apply border-border outline-ring/50": {}
+          },
+          "body": {
+            "@apply bg-background text-foreground": {}
+          },
+          "::selection": {
+            "background": "var(--selection)",
+            "color": "var(--selection-foreground)"
+          }
+        }
+      }
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "cn()",
+      "description": "Class name merging helper used by every component.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Indeterminate loading indicator.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "vexxhost/ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Button with variants, a danger tone, sizes and a loading state. Built on Base UI.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "vexxhost/ui/theme",
+        "vexxhost/ui/utils",
+        "vexxhost/ui/spinner"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy button",
+      "description": "Copies a value to the clipboard and confirms with a check mark.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "vexxhost/ui/button"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/copy-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
